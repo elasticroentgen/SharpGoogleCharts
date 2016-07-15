@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>$author$</authors>
+    <owners>$author$</owners>
+    <licenseUrl>https://raw.githubusercontent.com/thereapman/SharpGoogleCharts/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/thereapman/SharpGoogleCharts</projectUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <description>.Net Library to easily create JSON outputs for use with Google Charts</description>
+    <releaseNotes>Inital release</releaseNotes>
+    <copyright>Copyright 2016</copyright>
+    <tags>plot plots chart charts google</tags>
+  </metadata>
+</package>
