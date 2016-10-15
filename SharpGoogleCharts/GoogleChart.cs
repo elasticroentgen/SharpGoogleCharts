@@ -338,6 +338,17 @@ namespace SharpGoogleCharts
             return formatters;
         }
 
+        public ChartWrapper GetGoogleChartWrapper(string containerElementId)
+        {
+            ChartWrapper cw = new ChartWrapper();
+            cw.ChartType = GetGoogleFunctionName();
+            cw.Options = GetGoogleOptions();
+            cw.DataTable = GetGoogleDataTable();
+            cw.ContainerId = containerElementId;
+            return cw;
+        }
+
+
         public string GetGoogleFormattersJson()
         {
             return JsonConvert.SerializeObject(GetGoogleFormatters());
@@ -352,5 +363,26 @@ namespace SharpGoogleCharts
         {
             return JsonConvert.SerializeObject(GetGoogleDataTable());
         }
+
+        public string GetGoogleChartWrapperJson(string containerElementId)
+        {
+            return JsonConvert.SerializeObject(GetGoogleChartWrapper(containerElementId));
+        }
     }
+
+    public class ChartWrapper
+    {
+        [JsonProperty("chartType")]
+        public string ChartType { get; set; }
+
+        [JsonProperty("options")]
+        public Dictionary<string, object> Options { get; set; }
+
+        [JsonProperty("dataTable")]
+        public Dictionary<string, object> DataTable { get; set; }
+
+        [JsonProperty("containerId")]
+        public string ContainerId { get; set; }
+    }
+
 }

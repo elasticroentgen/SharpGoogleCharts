@@ -11,5 +11,16 @@ namespace SharpGoogleCharts
         public bool Showlegend { get; set; }
         public bool Showgrid { get; set; }
         public AxisOptions YAxis { get; set; }
+
+        public ChartOptions()
+        {
+            ChartType = PlotChartType.Line;
+            Curves = new List<ChartCurveOptions>();
+            Resolution = PlotResolution.None;
+            XAxis = new AxisOptions();
+            YAxis = new AxisOptions();
+        }
     }
+
+
 }
