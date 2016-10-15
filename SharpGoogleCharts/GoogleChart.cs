@@ -15,10 +15,7 @@ namespace SharpGoogleCharts
             CurveData = new Dictionary<string, List<PlotPoint>>();
         }
 
-        public string ConvertToGoogleDataTableJson()
-        {
-            return JsonConvert.SerializeObject(ToChart());
-        }
+
 
         private string ConvertDateTimeToJs(DateTime dt)
         {
@@ -26,7 +23,7 @@ namespace SharpGoogleCharts
         }
 
 
-        public Dictionary<string, object> ToChart()
+        public Dictionary<string, object> GetGoogleDataTable()
         {
             Dictionary<string, object> resultDict = new Dictionary<string, object>();
 
@@ -123,13 +120,9 @@ namespace SharpGoogleCharts
                 cols.Add(col);
             }
 
-
             resultDict["cols"] = cols;
-
             return resultDict;
-
         }
-
 
         public Dictionary<string, object> GetGoogleOptions()
         {
@@ -280,11 +273,6 @@ namespace SharpGoogleCharts
             return optionsDict;
         }
 
-        public string GetGoogleOptionsJson()
-        {
-            return JsonConvert.SerializeObject(GetGoogleOptions());
-        }
-
         public string GetGoogleFunctionName()
         {
             switch (ChartDefinition.ChartType)
@@ -307,7 +295,7 @@ namespace SharpGoogleCharts
             return "";
         }
 
-        public string GetGoogleFormatters()
+        public List<GoogleChartFormatter> GetGoogleFormatters()
         {
             List<GoogleChartFormatter> formatters = new List<GoogleChartFormatter>();
 
@@ -347,7 +335,22 @@ namespace SharpGoogleCharts
 
                 }
             }
-            return JsonConvert.SerializeObject(formatters);
+            return formatters;
+        }
+
+        public string GetGoogleFormattersJson()
+        {
+            return JsonConvert.SerializeObject(GetGoogleFormatters());
+        }
+
+        public string GetGoogleOptionsJson()
+        {
+            return JsonConvert.SerializeObject(GetGoogleOptions());
+        }
+
+        public string GetGoogleDataTableJson()
+        {
+            return JsonConvert.SerializeObject(GetGoogleDataTable());
         }
     }
 }
