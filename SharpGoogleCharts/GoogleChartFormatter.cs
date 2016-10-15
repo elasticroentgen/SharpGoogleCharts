@@ -1,6 +1,6 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace GoogleSharpPlots
+namespace SharpGoogleCharts
 {
     public class GoogleChartFormatter
     {

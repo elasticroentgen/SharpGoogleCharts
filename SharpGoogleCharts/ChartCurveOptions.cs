@@ -1,4 +1,4 @@
-namespace GoogleSharpPlots
+namespace SharpGoogleCharts
 {
     public class ChartCurveOptions
     {

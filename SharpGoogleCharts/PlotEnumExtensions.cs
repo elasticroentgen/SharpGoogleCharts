@@ -1,9 +1,7 @@
-namespace GoogleSharpPlots
+namespace SharpGoogleCharts
 {
     public static class PlotEnumExtensions
     {
-
-      
         public static string ToGoogleCharts(this PlotChartType pct)
         {
             switch (pct)
@@ -27,7 +25,7 @@ namespace GoogleSharpPlots
             }
         }
 
-     
+
 
         public static string ToGoogleCharts(this AxisDataType adt)
         {
