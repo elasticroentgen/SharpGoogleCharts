@@ -1,5 +1,17 @@
 {
-  "version": "0.1.0-*",
+  "title": "SharpGoogleCharts",
+  "copyright": "Markus Keil",
+  "description": "Create JS for Gogole charts",
+  "version": "0.2.0-*",
+  "packOptions": {
+    "tags": [ "plot", "chart", "google" ],
+    "summary": ".Net Library to easily create JSON outputs for use with Google Charts",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/thereapman/SharpGoogleCharts.git"
+    },
+    "licenseUrl": "http://choosealicense.com/licenses/mit"
+  },
   "buildOptions": {
     "debugType": "portable"
   },
@@ -11,6 +23,7 @@
       "dependencies": {
         "NETStandard.Library": "1.6.0"
       }
-    }
+    },
+    "net4.0": {}
   }
 }
