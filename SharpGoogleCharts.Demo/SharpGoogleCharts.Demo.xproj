@@ -6,7 +6,7 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\DotNet\Microsoft.DotNet.Props" Condition="'$(VSToolsPath)' != ''" />
   <PropertyGroup Label="Globals">
-    <ProjectGuid>6d716a48-7f3a-4a24-8b3e-f6b18f7a7064</ProjectGuid>
+    <ProjectGuid>76a1cde4-ad32-4f70-8287-8085b620e56e</ProjectGuid>
     <RootNamespace>SharpGoogleCharts.Demo</RootNamespace>
     <BaseIntermediateOutputPath Condition="'$(BaseIntermediateOutputPath)'=='' ">.\obj</BaseIntermediateOutputPath>
     <OutputPath Condition="'$(OutputPath)'=='' ">.\bin\</OutputPath>

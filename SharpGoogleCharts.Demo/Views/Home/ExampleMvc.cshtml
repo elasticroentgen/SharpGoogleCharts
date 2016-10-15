@@ -1,0 +1,98 @@
+@model SharpGoogleCharts.GoogleChart
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+<h2>ASP.Net MVC Example: Line Plot</h2>
+
+<div class="chart" id="linePlotDemo"></div>
+<script type="text/javascript">
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        @*var demoLinePlot = new google.visualization.ChartWrapper({
+            chartType: '@Model.GetGoogleFunctionName()',
+            dataTable: @Html.Raw(Model.GetGoogleDataTableJson()),
+            options: @Html.Raw(Model.GetGoogleOptionsJson()),
+            containerId: 'linePlotDemo'
+        });*@
+
+        var demoLinePlot = new google.visualization.ChartWrapper(@Html.Raw(Model.GetGoogleChartWrapperJson("linePlotDemo")));
+        demoLinePlot.draw();
+    }
+</script>
+
+<h3>Server side code for MVC</h3>
+<pre>
+public IActionResult Index()
+{
+    ChartOptions opts = new ChartOptions();
+    opts.ChartType = PlotChartType.Line;
+    opts.Resolution = PlotResolution.None;
+    opts.Showgrid = true;
+    opts.XAxis.Datatype = AxisDataType.Numeric;
+    opts.YAxis.Datatype = AxisDataType.Numeric;
+    GoogleChart chart = new GoogleChart();
+    chart.ChartDefinition = opts;
+    chart.CurveData.Add("My Curve 1", new List<PlotPoint>
+    {
+        new PlotPoint(0,20),
+        new PlotPoint(1,30),
+        new PlotPoint(2,40),
+        new PlotPoint(3,35),
+        new PlotPoint(4,15),
+        new PlotPoint(5,25)
+    });
+    chart.CurveData.Add("My Curve 2", new List<PlotPoint>
+    {
+        new PlotPoint(0,12),
+        new PlotPoint(1,13),
+        new PlotPoint(2,18),
+        new PlotPoint(3,22),
+        new PlotPoint(4,42),
+        new PlotPoint(5,23)
+    });
+    return View(chart);
+}
+</pre>
+
+<h3>ASP.Net MVC Razor View using ChartWrapper</h3>
+<p>
+    The get-going-fast solution.
+</p>
+<pre>
+&lt;div class="chart" id="linePlotDemo"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var demoLinePlot = new google.visualization.ChartWrapper(@@Model.GetGoogleChartWrapper("linePlotDemo"));
+        demoLinePlot.draw();
+    }
+&lt;/script&gt;
+</pre>
+
+
+<h3>ASP.Net MVC Razor View using seperate methods</h3>
+<p>
+    Use this to customize your plot in javascript even further or just take the data.
+</p>
+<pre>
+&lt;div class="chart" id="linePlotDemo"&gt;&lt;/div&gt;
+&lt;script type="text/javascript"&gt;
+    google.charts.load('current', { 'packages': ['corechart'] });
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+        var demoLinePlot = new google.visualization.ChartWrapper({
+            chartType: '@@Model.GetGoogleFunctionName()',
+            dataTable: @@Html.Raw(Model.GetGoogleDataTableJson()),
+            options: @@Html.Raw(Model.GetGoogleOptionsJson()),
+            containerId: 'linePlotDemo'
+        });
+
+        demoLinePlot.draw();
+    }
+&lt;/script&gt;
+</pre>
