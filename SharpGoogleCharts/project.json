@@ -2,7 +2,7 @@
   "title": "SharpGoogleCharts",
   "copyright": "Markus Keil",
   "description": "Create JS for Gogole charts",
-  "version": "0.2.0-*",
+  "version": "0.3.0-*",
   "packOptions": {
     "tags": [ "plot", "chart", "google" ],
     "summary": ".Net Library to easily create JSON outputs for use with Google Charts",
