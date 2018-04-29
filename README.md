@@ -2,7 +2,7 @@
 
 .Net Library to easily create JSON outputs for use with Google Charts
 
-Demo at http://sharpgooglecharts.keil-connect.com/Home/ExampleMvc
+Demo at https://sharpgooglecharts.keil-connect.com/Home/ExampleMvc
 
 ## Quick Start
 
